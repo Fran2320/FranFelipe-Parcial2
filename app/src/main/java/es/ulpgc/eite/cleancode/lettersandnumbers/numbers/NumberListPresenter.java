@@ -34,6 +34,8 @@ public class NumberListPresenter implements NumberListContract.Presenter {
     // use passed state if is necessary
     LettersToNumbersState savedState = getStateFromPreviousScreen();
     if (savedState != null) {
+      //ESTO ES LO QUE METI
+      state.datasource=savedState.array;
 
       // update the model if is necessary
       model.onDataFromPreviousScreen(savedState.data);
@@ -84,6 +86,11 @@ public class NumberListPresenter implements NumberListContract.Presenter {
     state.data = model.getStoredData();
     state.numCliks = model.getStorednumClicks();
     mediator.setNumberListState(state);
+
+    //pasar datos a la otra pantalla
+    NumbersToLettersState numberState = new NumbersToLettersState();
+    numberState.array = model.getStoredDataNumero();
+    passStateToPreviousScreen(numberState);
   }
 
   @Override

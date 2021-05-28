@@ -59,7 +59,7 @@ public class LetterListPresenter implements LetterListContract.Presenter {
     // use passed state if is necessary
     NumbersToLettersState savedState = getStateFromNextScreen();
     if (savedState != null) {
-
+      state.obj.numbers = savedState.array;
       // update the model if is necessary
       model.onDataFromNextScreen(savedState.data);
     }
@@ -111,6 +111,10 @@ public class LetterListPresenter implements LetterListContract.Presenter {
   public void onClickLetterListCell(LetterData data) {
     // Log.e(TAG, "onClickLetterListCell()");
     state.obj=data;
+    //Para pasarle los datos a la pantalla Numbers
+    LettersToNumbersState estado = new LettersToNumbersState();
+    estado.array = data.numbers;
+    passStateToNextScreen(estado);
     view.get().navigateToNextScreen();
   }
 
