@@ -121,6 +121,9 @@ public class NumberListPresenter implements NumberListContract.Presenter {
   @Override
   public void onClickNumberListButton() {
     // Log.e(TAG, "onClickNumberListButton()");
+    model.addProduct();
+    state.datasource = model.getStoredDataNumero();
+    view.get().onDataUpdated(state);
   }
 
   @Override
