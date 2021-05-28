@@ -23,6 +23,7 @@ public class NumberListModel implements NumberListContract.Model {
   @Override
   public String getStoredData() {
     // Log.e(TAG, "getStoredData()");
+    data = Integer.toString(num);
     return data;
   }
 
@@ -30,6 +31,24 @@ public class NumberListModel implements NumberListContract.Model {
   public List<NumberData> getStoredDataNumero() {
     // Log.e(TAG, "getStoredData()");
     return datasource;
+  }
+
+  @Override
+  public int getStorednumClicks() {
+    // Log.e(TAG, "getStoredData()");
+    return num;
+  }
+
+  @Override
+  public void setStorednumClicks( int numeClicks) {
+    // Log.e(TAG, "getStoredData()");
+    num=numeClicks;
+  }
+
+  @Override
+  public void setDataSource( List<NumberData> lista) {
+    // Log.e(TAG, "getStoredData()");
+    datasource=lista;
   }
 
   @Override

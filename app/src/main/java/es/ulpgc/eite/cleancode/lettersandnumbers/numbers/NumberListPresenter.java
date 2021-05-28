@@ -39,6 +39,12 @@ public class NumberListPresenter implements NumberListContract.Presenter {
       model.onDataFromPreviousScreen(savedState.data);
     }
 
+    NumberListState estado = mediator.getNumberListState();
+    if(estado!=null){
+      state.numCliks=estado.numCliks;
+      //state.datasource=estado.datasource;
+    }
+
   }
 
   @Override
@@ -74,6 +80,10 @@ public class NumberListPresenter implements NumberListContract.Presenter {
   @Override
   public void onBackPressed() {
     // Log.e(TAG, "onBackPressed()");
+    state.datasource = model.getStoredDataNumero();
+    state.data = model.getStoredData();
+    state.numCliks = model.getStorednumClicks();
+    mediator.setNumberListState(state);
   }
 
   @Override
@@ -121,7 +131,15 @@ public class NumberListPresenter implements NumberListContract.Presenter {
   @Override
   public void onClickNumberListButton() {
     // Log.e(TAG, "onClickNumberListButton()");
-    model.addProduct();
+    if(state.numCliks ==0){
+      model.addProduct();
+    }else{
+      model.setStorednumClicks(state.numCliks);
+      model.setDataSource(state.datasource);
+      model.addProduct();
+    }
+    //model.addProduct();
+    state.numCliks = model.getStorednumClicks();
     state.datasource = model.getStoredDataNumero();
     view.get().onDataUpdated(state);
   }

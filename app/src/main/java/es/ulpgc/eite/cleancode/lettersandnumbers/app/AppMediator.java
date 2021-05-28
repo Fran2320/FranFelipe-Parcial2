@@ -36,6 +36,10 @@ public class AppMediator {
     return letterListState;
   }
 
+  public void setNumberListState(NumberListState state) {
+     numberListState=state;
+  }
+
   public NumberListState getNumberListState() {
     return numberListState;
   }

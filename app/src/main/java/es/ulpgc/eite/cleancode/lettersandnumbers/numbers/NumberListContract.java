@@ -37,6 +37,9 @@ public interface NumberListContract {
     void onDataFromPreviousScreen(String data);
     List<NumberData> getStoredDataNumero();
     void addProduct();
+    int getStorednumClicks();
+    void setStorednumClicks( int numeClicks);
+    void setDataSource( List<NumberData> lista);
   }
 
 
