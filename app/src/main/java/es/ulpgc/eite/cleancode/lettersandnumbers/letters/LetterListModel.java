@@ -63,6 +63,7 @@ public class LetterListModel implements LetterListContract.Model {
     //}
     //item.letter = Character.toString(letra);
     //item.letter = "A";
+
     //objetosLetras.add(item);
   }
 
