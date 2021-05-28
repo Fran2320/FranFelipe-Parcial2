@@ -86,6 +86,7 @@ public class LetterListActivity
           public void onClick(View view) {
             LetterData data = (LetterData) view.getTag();
             presenter.onClickLetterListCell(data);
+
           }
         })
     );

@@ -1,5 +1,7 @@
 package es.ulpgc.eite.cleancode.lettersandnumbers.letters;
 
+import android.util.Log;
+
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.lettersandnumbers.app.AppMediator;
@@ -112,7 +114,12 @@ public class LetterListPresenter implements LetterListContract.Presenter {
 
   @Override
   public void onClickLetterListButton() {
-    // Log.e(TAG, "onClickLetterListButton()");
+     Log.e(TAG, "onClickLetterListButton()");
+    model.addProduct();
+    Log.e(TAG, "se añadio productos");
+    state.datasource = model.getStoredDataSource();
+
+    view.get().onDataUpdated(state);
   }
 
   @Override
