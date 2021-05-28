@@ -28,7 +28,7 @@ public class LetterListActivity
     if (savedInstanceState == null) {
       AppMediator.resetInstance();
     }
-
+    //do this
     // do the setup
     LetterListScreen.configure(this);
 
