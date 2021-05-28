@@ -110,6 +110,7 @@ public class LetterListPresenter implements LetterListContract.Presenter {
   @Override
   public void onClickLetterListCell(LetterData data) {
     // Log.e(TAG, "onClickLetterListCell()");
+    state.obj=data;
     view.get().navigateToNextScreen();
   }
 

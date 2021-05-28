@@ -13,6 +13,7 @@ public class LetterListModel implements LetterListContract.Model {
 
   private String data;
   private List<LetterData> objetosLetras;
+  private char letra= 'A';
 
   public LetterListModel(String data) {
     objetosLetras = new ArrayList<>();
@@ -48,8 +49,21 @@ public class LetterListModel implements LetterListContract.Model {
 
   public void addProduct() {
     LetterData item = createProduct();
-    item.letter = "A";
-    objetosLetras.add(item);
+    if(letra =='A'){
+      item.letter = Character.toString(letra);
+      objetosLetras.add(item);
+    }else{
+      item.letter = Character.toString(letra);
+      objetosLetras.add(item);
+    }
+    letra++;
+    //for(char letra = 'A';letra<'Z';letra++){
+     // String let = Character.toString(letra);
+     // item.letter = let;
+    //}
+    //item.letter = Character.toString(letra);
+    //item.letter = "A";
+    //objetosLetras.add(item);
   }
 
   private LetterData createProduct() {
